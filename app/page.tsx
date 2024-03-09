@@ -17,6 +17,7 @@ export default function Home() {
           >
             By{" "}
             <Image
+              data-test="picture"
               src="/vercel.svg"
               alt="Vercel Logo"
               className="dark:invert"
