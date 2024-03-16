@@ -3,9 +3,9 @@ import Image from "next/image";
 import React from "react";
 import { parse } from "node-html-parser";
 
-const getRandom = function <T>(arr: Array<T>): T {
+function getRandom<T>(arr: Array<T>): T {
   return arr[Math.floor(Math.random() * arr.length)];
-};
+}
 
 const withHost = (path: string) => `https://gallerix.org${path}`;
 
@@ -87,7 +87,7 @@ export default async function Page() {
         data-test="picture"
       />
 
-      <Link href={`/explore/abc-1234-def`} data-test="begin">
+      <Link href={`/explore/picture0`} data-test="begin">
         Begin
       </Link>
     </div>
