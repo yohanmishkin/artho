@@ -16,7 +16,7 @@ export async function generateStaticParams(): Promise<Array<RandomImage>> {
       .map((x, i) => `picture${i}`);
 
   const pictures = await Promise.resolve(getPictures(10));
-  console.log(pictures);
+
   return pictures.map((x) => ({
     id: x,
     src: `https://artho.org/${x}`,
@@ -24,6 +24,5 @@ export async function generateStaticParams(): Promise<Array<RandomImage>> {
 }
 
 export default function Page({ params }: { params: RandomImage }) {
-  console.log(params);
   return <p>Post: {params.id}</p>;
 }
