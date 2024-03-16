@@ -1,8 +1,4 @@
-import type {
-  GetStaticPaths,
-  GetStaticProps,
-  InferGetStaticPropsType,
-} from "next";
+import Image from "next/image";
 
 type RandomImage = {
   id: string;
@@ -22,16 +18,26 @@ export async function generateStaticParams(): Promise<Array<RandomImage>> {
   const getPictures = (n: number) =>
     Array(n)
       .fill(null)
-      .map((x, i) => createUUID());
+      .map((x, i) => ({
+        id: createUUID(),
+        src: `https://artho.org/${x}`,
+      }));
 
-  const pictures = await Promise.resolve(getPictures(10));
-
-  return pictures.map((x) => ({
-    id: x,
-    src: `https://artho.org/${x}`,
-  }));
+  return await Promise.resolve(getPictures(10));
 }
 
 export default function Page({ params }: { params: RandomImage }) {
-  return <p>Post: {params.id}</p>;
+  console.log(params);
+  return (
+    <div>
+      <p>Post: {params.id}</p>
+      <Image
+        src={params.src}
+        width={500}
+        height={500}
+        alt="Cool picture"
+        data-test="picture"
+      />
+    </div>
+  );
 }

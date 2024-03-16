@@ -76,20 +76,18 @@ async function getRandomPictures(num: number): Promise<Array<string>> {
 }
 
 export default async function Page() {
+  const imageUrl = await getRandomPicture();
+  console.log("hi", imageUrl);
   return (
     <div>
       <h1>Hello!</h1>
       <Image
-        src="/vercel.svg"
+        src={imageUrl}
         width={500}
         height={500}
         alt="Cool picture"
         data-test="picture"
       />
-
-      <Link href={`/explore/picture0`} data-test="begin">
-        Begin
-      </Link>
     </div>
   );
 }
