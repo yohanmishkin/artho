@@ -12,4 +12,12 @@ it("displays an image and pre-fetches the next", () => {
   cy.get(`[data-test="next-picture"]`)
     .should("have.attr", "src")
     .should("match", /_next\/image\?url/);
+
+  // scroll
+
+  // should fetch another picture
+
+  // scroll
+
+  // should fetch another picture
 });
