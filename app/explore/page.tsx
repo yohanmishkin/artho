@@ -76,7 +76,10 @@ async function getRandomPictures(num: number): Promise<Array<string>> {
 }
 
 export default async function Page() {
-  const imageUrl = await getRandomPicture();
+  const [imageUrl, nextImageUrl] = [
+    await getRandomPicture(),
+    await getRandomPicture(),
+  ];
 
   return (
     <div>
@@ -87,6 +90,13 @@ export default async function Page() {
         height={500}
         alt="Cool picture"
         data-test="picture"
+      />
+      <Image
+        src={nextImageUrl}
+        width={500}
+        height={500}
+        alt="Cool picture"
+        data-test="next-picture"
       />
     </div>
   );
