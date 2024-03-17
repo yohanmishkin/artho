@@ -6,7 +6,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "cdn.gallerix.asia",
         port: "",
-        pathname: "/my-bucket/**",
+        pathname: "**",
       },
     ],
   },

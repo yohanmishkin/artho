@@ -77,7 +77,7 @@ async function getRandomPictures(num: number): Promise<Array<string>> {
 
 export default async function Page() {
   const imageUrl = await getRandomPicture();
-  console.log("hi", imageUrl);
+
   return (
     <div>
       <h1>Hello!</h1>
