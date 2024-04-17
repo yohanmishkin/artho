@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import Image from 'next/image';
-import React from 'react';
 import { parse } from 'node-html-parser';
+import React from 'react';
 
 function getRandom<T>(arr: Array<T>): T {
   return arr[Math.floor(Math.random() * arr.length)];
