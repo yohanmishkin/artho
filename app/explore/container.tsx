@@ -11,11 +11,11 @@ export default function Container({ children }) {
     const fetchData = async () => {
       setIsLoading(true);
 
-      const [mainImage, nextImage, upcomingImage] = [
-        await getRandomPicture(),
-        await getRandomPicture(),
-        await getRandomPicture(),
-      ];
+      const [mainImage, nextImage, upcomingImage] = await Promise.all([
+        getRandomPicture(),
+        getRandomPicture(),
+        getRandomPicture(),
+      ]);
 
       if (!isCancelled) {
         setInitialUrls({
