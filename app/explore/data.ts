@@ -29,8 +29,10 @@ export async function getRandomPicture(): Promise<string> {
 
   let randomArtist = getRandom(artists);
 
-  function isElement(qwer: unknown): asserts qwer is Element {
-    if (qwer === null) {
+  function isElement(
+    potentialArtist: unknown,
+  ): asserts potentialArtist is Element {
+    if (potentialArtist === null) {
       throw new Error('Failed picking a random artist');
     }
   }
