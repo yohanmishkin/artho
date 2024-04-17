@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { getRandomPicture } from './data';
 
 export default async function Page() {
-  const [imageUrl, nextImageUrl, upcomingImageUrl] = [
+  const [mainImageURL, nextImageUrl, upcomingImageUrl] = [
     await getRandomPicture(),
     await getRandomPicture(),
     await getRandomPicture(),
@@ -19,7 +19,7 @@ export default async function Page() {
     <div>
       <h1>Hello!</h1>
       <Image
-        src={imageUrl}
+        src={mainImageURL}
         width={500}
         height={500}
         alt="Cool picture"
