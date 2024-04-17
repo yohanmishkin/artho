@@ -1,7 +1,7 @@
-import Link from "next/link";
-import Image from "next/image";
-import React from "react";
-import { parse } from "node-html-parser";
+import Link from 'next/link';
+import Image from 'next/image';
+import React from 'react';
+import { parse } from 'node-html-parser';
 
 function getRandom<T>(arr: Array<T>): T {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -20,7 +20,7 @@ async function getDocument(url: string) {
 }
 
 async function getRandomPicture(): Promise<string> {
-  let letters = ["_RUS", ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")];
+  let letters = ['_RUS', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')];
 
   let randomLetter = getRandom(letters);
 
@@ -36,33 +36,33 @@ async function getRandomPicture(): Promise<string> {
 
   function isElement(qwer: unknown): asserts qwer is Element {
     if (qwer === null) {
-      throw new Error("Failed picking a random artist");
+      throw new Error('Failed picking a random artist');
     }
   }
 
   isElement(randomArtist);
 
   let artistUrl = withHost(
-    randomArtist.getAttribute("href") ?? "NO ARTIST LINK!",
+    randomArtist.getAttribute('href') ?? 'NO ARTIST LINK!',
   );
 
   let randomArtistDocument = await getDocument(artistUrl);
 
   let thumbnailLinks = Array.from(
-    randomArtistDocument.querySelectorAll(".pic .animsition-link"),
+    randomArtistDocument.querySelectorAll('.pic .animsition-link'),
   );
 
   let randomThumbnail = getRandom(thumbnailLinks);
   isElement(randomThumbnail);
 
   let imageUrl = withHost(
-    randomThumbnail.getAttribute("href") ?? "NO THUMBNAIL!",
+    randomThumbnail.getAttribute('href') ?? 'NO THUMBNAIL!',
   );
 
   let imageDocument = await getDocument(imageUrl);
 
   let jpegUrl =
-    imageDocument?.querySelector("#xpic")?.getAttribute("src") ?? "NO LUCK";
+    imageDocument?.querySelector('#xpic')?.getAttribute('src') ?? 'NO LUCK';
 
   return jpegUrl;
 }
@@ -89,7 +89,7 @@ export default async function Page() {
         width={500}
         height={500}
         alt="Cool picture"
-        data-test="picture"
+        data-test="main-picture"
       />
       <Image
         src={nextImageUrl}
