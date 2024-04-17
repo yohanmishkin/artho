@@ -1,12 +1,19 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { getRandomPicture } from './data';
 
 export default async function Page() {
-  const [imageUrl, nextImageUrl] = [
+  const [imageUrl, nextImageUrl, upcomingImageUrl] = [
+    await getRandomPicture(),
     await getRandomPicture(),
     await getRandomPicture(),
   ];
+
+  // const nextThing = useRef();
+
+  // useEffect(() => {
+  //   console.log(nextThing.current);
+  // }, []);
 
   return (
     <div>
@@ -22,8 +29,15 @@ export default async function Page() {
         src={nextImageUrl}
         width={500}
         height={500}
-        alt="Cool picture"
+        alt="Next thing"
         data-test="next-picture"
+      />
+      <Image
+        src={upcomingImageUrl}
+        width={500}
+        height={500}
+        alt="Upcoming thing"
+        data-test="upcoming-picture"
       />
     </div>
   );
