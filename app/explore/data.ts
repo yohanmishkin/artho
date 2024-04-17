@@ -61,11 +61,3 @@ export async function getRandomPicture(): Promise<string> {
 
   return jpegUrl;
 }
-
-async function getRandomPictures(num: number): Promise<Array<string>> {
-  const results: Array<string> = [];
-  for (let i = 0; i < num; i++) {
-    // results.push(await getRandomPicture());
-  }
-  return results;
-}
